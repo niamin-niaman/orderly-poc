@@ -1,6 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from "./App";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+} from '@apollo/client';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import App from './App';
+
+const client = new ApolloClient({
+  uri: 'https://e729f1c3da7e02.localhost.run',
+  cache: new InMemoryCache(),
+});
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
+);

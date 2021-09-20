@@ -12,6 +12,7 @@ export default function App() {
       .getProfile()
       .then(profile => {
         const name = profile.displayName;
+        // TODO call apollo here
         setName(name);
       })
       .catch(err => {
